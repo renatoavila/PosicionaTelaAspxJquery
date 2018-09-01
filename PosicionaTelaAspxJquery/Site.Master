@@ -1,0 +1,28 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="PosicionaTelaAspxJquery.Site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Posiciona Tela Aspx Jquery</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="Scripts/funcoes.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <%-- Esse HiddenField é muito importante --%>
+        <%-- Ele que fará a integração entre C#, ASPX e JQUERY --%>
+        <asp:HiddenField ID="hidPos" runat="server" Value="0" ClientIDMode="Static" />
+        <%--Importante Static para que o js encontre --%>
+        <div style="position:fixed; bottom:10px; right:50px">
+            <asp:Label ID="lblPosicao" Text="0" runat="server" ClientIDMode="Static" />px
+        </div>
+    </form>
+</body>
+</html>
